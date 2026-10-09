@@ -1,5 +1,6 @@
 # Build artifacts
 /build/
+/out/
 /.vs/
 CMakeFiles/
 CMakeCache.txt
