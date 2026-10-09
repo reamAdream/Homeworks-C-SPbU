@@ -1,0 +1,7 @@
+# ninja log v7
+4	500	8132718572716811	CMakeFiles/hw1.dir/src/main.cpp.obj	ac06730c5955869a
+15	710	8132769237422104	CMakeFiles/bench_sort.dir/bench/bench_sort.cpp.obj	9ccd112b01defbf0
+502	645	8132718577695488	hw1.exe	f6a70383315ee03d
+10	668	8132718572776874	CMakeFiles/test_sort.dir/test/test_sort.cpp.obj	a15e8a66ddc3cf24
+711	827	8132769244383726	bench_sort.exe	1f23629cf496491d
+669	784	8132718579364493	test_sort.exe	d649f2ae9156c5d1
