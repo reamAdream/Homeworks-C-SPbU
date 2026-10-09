@@ -1,7 +1,7 @@
 # Build artifacts
-/build/
-/out/
-/.vs/
+build/
+out/
+.vs/
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
