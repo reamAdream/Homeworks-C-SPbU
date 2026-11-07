@@ -1,0 +1,31 @@
+HW2 validation and benchmark run
+Date: 2026-11-07
+CPU: AMD Ryzen 9 8945HX with Radeon Graphics
+Platform: Windows x64, MSVC, C++17
+
+Correctness: x64-Debug/test_matrix.exe
+Compiler flags in build.ninja for both test source files:
+/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od -std:c++17 -MDd /fsanitize=address
+Link option: /INCREMENTAL:NO
+Output: Success!
+Exit code: 0
+
+Benchmark: x64-Release/bench_matrix.exe
+Compiler flags in build.ninja for benchmark and DenseMatrix source files:
+/DWIN32 /D_WINDOWS /EHsc /O2 /Ob2 /DNDEBUG -std:c++17 -MD
+No sanitizer flags in this configuration.
+
+    Size      Naive (ms)      Optimized (ms)     Speedup
+     100          0.8284              0.1713        4.84
+     200          6.5873              1.1482        5.74
+     500        124.1434             20.2796        6.12
+    1000       1011.5716            168.6525        6.00
+
+Checksum naive:     299037.545733
+Checksum optimized: 299037.545733
+Exit code: 0
+
+One benchmark run; timings are not medians.
+Matrix generation, checksums and printing are outside the timed intervals.
+Result allocation is inside each timed multiplication.
+Optimized multiplication runs first for each size.
