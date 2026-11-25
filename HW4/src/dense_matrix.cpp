@@ -7,6 +7,7 @@
 #include <utility>
 #include <iomanip>
 #include <limits>
+#include <sstream>
 
 
 namespace {
@@ -219,20 +220,45 @@ DenseMatrix DenseMatrix::fromFile(const std::string& path) {
 	
 	int rows = 0;
 	int cols = 0;
-	if (!(inputFile >> rows >> cols)) {
-		throw std::runtime_error("Cannot read matrix dimensions: " + path);
-	}
+	
+	std::string line;
+	std::vector<double> values;
 
-	DenseMatrix result(rows, cols);
-	for (int i = 0; i < rows; i++) {
-		for (int j = 0; j < cols; j++) {
-			double value = 0.0;
-			if (!(inputFile >> value)) {
-				throw std::runtime_error("Cannot read matrix element: " + path);
+	while (std::getline(inputFile, line)) {
+		std::istringstream rowStream(line);
+		int CurrentCols = 0;
+		double value = 0.0;
+
+		while (true) {
+			rowStream >> std::ws;
+
+			if (rowStream.eof()) {
+				break;
 			}
-			result.set(i, j, value);
+
+			if (!(rowStream >> value)) {
+				throw std::runtime_error("Invalid matrix element: " + path);
+			}
+
+			values.push_back(value);
+			++CurrentCols;
 		}
+		if (CurrentCols == 0) {
+			throw std::runtime_error("Empty matrix row: " + path);
+		}
+		if (rows == 0) {
+			cols = CurrentCols;
+		}
+		else if (CurrentCols != cols) {
+			throw std::runtime_error("Different matrix row lenghts: " + path);
+		}
+		++rows;
 	}
+	if (inputFile.bad() || !inputFile.eof()) {
+		throw std::runtime_error("Cannot read matrix file: " + path);
+	}
+	DenseMatrix result(rows,cols);
+	result.data_ = std::move(values);
 	return result;
 }
 
@@ -244,7 +270,6 @@ void DenseMatrix::toFile(const std::string& path) const {
 	}
 	int digits = std::numeric_limits<double>::max_digits10;
 	outputFile << std::setprecision(digits);
-	outputFile << rows_ << ' ' << cols_ << '\n';
 	for (int i = 0; i < rows_; i++) {
 		for (int j = 0; j < cols_; j++) {
 			outputFile << at(i, j) << " ";

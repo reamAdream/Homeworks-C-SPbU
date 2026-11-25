@@ -87,6 +87,17 @@ void TestSaveAndLoadMatrix() {
 	}
 }
 
+void TestInvalidMatrixFile() {
+	bool check = false;
+	try {
+		DenseMatrix::fromFile(HW4_DATA_DIR "/matrix_False_TEST.txt");
+	}
+	catch (const std::runtime_error&) {
+		check = true;
+	}
+	assert(check);
+}
+
 int main() {
 	//Проверка корректности параллельного перемножения случайных матриц
 	TestRandomMul(1, 1, 1,1);
@@ -100,6 +111,9 @@ int main() {
 
 	//Проверка корректности сохранения матрицы в файл и чтения её из него же
 	TestSaveAndLoadMatrix();
+
+	//Проверка импорта некорректной матрицы
+	TestInvalidMatrixFile();
 
 	std::cout << "Success!";
 	return 0;
