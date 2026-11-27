@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>О релизе | LOOPBACK TAPES</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#151513;color:#f4efe4;font:16px system-ui,sans-serif}a{color:inherit}header,main,footer{width:min(1180px,calc(100% - 48px));margin:auto}header{display:flex;justify-content:space-between;align-items:center;padding:26px 0;border-bottom:1px solid #48463f}header>a{font-weight:900;text-decoration:none;letter-spacing:.12em}nav{display:flex;gap:20px;font-size:.85rem}nav a{text-decoration:none}nav a[aria-current]{color:#dfff48}a:focus-visible{outline:2px solid #dfff48;outline-offset:5px}main{padding:48px 0}footer{padding:20px 0;border-top:1px solid #48463f;color:#bcb8ab;font: .78rem monospace}.hero{display:grid;grid-template-columns:1.15fr 1fr;min-height:490px;border:1px solid #48463f}.copy{padding:clamp(24px,5vw,70px);align-self:center}.tag{font: bold .8rem monospace;letter-spacing:.14em;color:#dfff48}.hero h1{font-size:clamp(3rem,8vw,7.5rem);line-height:.86;letter-spacing:-.085em;margin:24px 0;text-transform:uppercase}.accent{color:#dfff48}.copy p:not(.tag){line-height:1.6;color:#d4d0c3;max-width:36ch}.button{display:inline-block;margin-top:14px;padding:12px 18px;background:#dfff48;color:#151513;text-decoration:none;font-weight:800}.button:hover{background:#f4efe4}.art{display:grid;place-items:center;position:relative;overflow:hidden;min-height:340px;background:repeating-linear-gradient(135deg,#dfff48 0 22px,#d3f23e 22px 24px)}.record{width:min(78%,380px);aspect-ratio:1;border-radius:50%;background:repeating-radial-gradient(circle,#222 0 3px,#323230 4px,#181818 6px);box-shadow:14px 18px 0 #25291e55;display:grid;place-items:center;transform:rotate(-15deg)}.label{width:42%;aspect-ratio:1;background:#ff693e;border-radius:50%;display:grid;place-content:center;text-align:center;color:#171614;font:900 clamp(.8rem,2vw,1.6rem) monospace}.label:after{content:"";width:9px;height:9px;background:#151513;border-radius:50%;margin:10px auto 0}.tracks{background:#22221e;padding:32px;display:grid;align-content:center}.tracks ol{list-style:none;padding:0;margin:12px 0}.tracks li{padding:20px 0;border-bottom:1px solid #555349;font-weight:750}.tracks span{display:inline-block;color:#dfff48;font: .9rem monospace;margin-right:14px}@media(max-width:720px){.hero{grid-template-columns:1fr}main{padding:26px 0}.art{min-height:280px}.record{max-width:240px}header,main,footer{width:calc(100% - 32px)}}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}footer a{color:#dfff48;text-underline-offset:3px}
+</style>
+</head>
+<body>
+<header>
+  <a href="/">LOOPBACK TAPES</a>
+  <nav aria-label="Навигация">
+    <a href="/">Главная</a>
+    <a href="/about.html" aria-current="page">О релизе</a>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="copy">
+      <p class="tag">СТОРОНА B / ВКЛАДЫШ</p>
+      <h1>За<br><span class="accent">битом</span></h1>
+      <p>Я HellaReam. LOOPBACK TAPES — маленький сайт для моего проекта HW5. Обложка и эта страница лежат в двух отдельных HTML-файлах, которые отдаёт мой сервер.</p>
+      <a class="button" href="/">← На обложку</a>
+    </div>
+    <aside class="tracks" aria-label="Треклист проекта">
+      <p class="tag">ТРЕКЛИСТ ПРОЕКТА</p>
+      <ol>
+        <li><span>01</span> Сервер принимает запрос</li>
+        <li><span>02</span> Браузер показывает страницу</li>
+        <li><span>03</span> Консольный клиент выводит ответ</li>
+      </ol>
+    </aside>
+  </section>
+</main>
+<footer><span>HW5 / WINSOCK2 / 127.0.0.1:8080</span><a href="https://github.com/reamAdream">HellaReam на GitHub</a></footer>
+</body>
+</html>
